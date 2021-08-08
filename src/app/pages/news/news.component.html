@@ -1,0 +1,72 @@
+<div class="news">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">News</li>
+      </ol>
+    </nav>
+    <h2>News</h2>
+    <form>
+      <div class="form-row row">
+        <div class="form-group col-md-3">
+          <label for="inputEmail4">Email</label>
+          <input type="text"  class="form-control"   [(ngModel)]="filteredString" [ngModelOptions]="{standalone: true}">
+          <p>val : {{filteredString}}</p>
+        </div>
+      </div>
+
+
+
+    </form>
+
+    <div class="contentLatestNews">
+      <div class="card" *ngFor="let item of data | filter:filteredString">
+        <div (click)='getID(item.id)'>
+          <img src={{item.urlToImage}} class="card-img-top" alt="..." style="height: 180px;">
+          <div class="icon-heart-share">
+            <div class="i-heart">
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+            </div>
+            <div>
+              <i (click)="toggleShare()" class="fa fa-share-alt" aria-hidden="true"></i>
+              <div [ngClass]="isShare == true ? 'CloseButtom' : 'OpenButtom'">
+                <ul class="listShare">
+                  <li class="I-facebook">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </li>
+                  <li class="I-twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </li>
+                  <li class="I-envelope">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">
+              <a routerLink="/news">
+              {{item.title | slice:0:40}}...
+              </a>
+           </h5>
+            <p class="tags">News</p>
+            <p class="card-text">{{item.description | slice:0:80}}...</p>
+            <p class="p-date">
+              <i class="fa fa-calendar-o" aria-hidden="true"></i>
+              {{item.publishedAt | date:'fullDate'}}
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+</div>

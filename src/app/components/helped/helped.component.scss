@@ -1,0 +1,49 @@
+@import '../../styles/helper/variables';
+@import '../../styles/helper/mixins';
+
+.contnet-helped{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  .list-helped{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 30px 0 15px;
+
+    li{
+      padding: 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 40px;
+      z-index: 999;
+      width: 150px;
+      .borderRotate{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 150px;
+        height: 150px;
+        border: 2px solid #FFF;
+        transform: rotate(45deg);
+        &:hover {
+          background-color: $SecondColor;
+          color: #FFF;
+          z-index: -1;
+          @include transition(background-color .9s);
+        }
+      }
+      i {font-size: 30px;}
+    }
+  }
+  .list-helped-buttom{padding: 0;}
+
+}
+
+
