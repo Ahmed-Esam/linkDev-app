@@ -7,5 +7,4 @@ export interface IArticle {
   description: string;
   publishedAt: string;
   showOnHomepage: boolean;
-  category:string;
 }

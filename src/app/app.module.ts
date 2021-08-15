@@ -18,6 +18,9 @@ import { DetailsComponent } from './pages/details/details.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HttpClientModule,
     Ng2SearchPipeModule,
     FormsModule,
+    NgbPaginationModule,
+    NgbAlertModule,
+    NgbModule
+    // NgxDaterangepickerMd.forRoot(),
 
   ],
   providers: [

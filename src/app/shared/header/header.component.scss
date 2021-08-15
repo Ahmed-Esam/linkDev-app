@@ -2,9 +2,13 @@
 
 .Header{
   background-color: $MianColor;
+
   .navbar{
     .img-menu{cursor: pointer;}
     .navbar-brand{
+      @media (max-width: 768px) {
+        margin-right: 0;
+      }
       img{
         margin:0 20px;
       }
@@ -15,6 +19,16 @@
     display: flex;
     align-items: center;
     color: #FFF;
+    @media (max-width: 768px) {
+      width: 59%;
+    }
+    .H-img-user{
+      span{
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+    }
     >div{
       margin: 0 10px;
     }

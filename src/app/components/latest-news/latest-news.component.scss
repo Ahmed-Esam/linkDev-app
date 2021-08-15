@@ -25,6 +25,9 @@
     flex-wrap: wrap;
     .card{
       width: calc((100% - 30px ) / 3);
+      @media (max-width: 768px) {
+        width: 100%;
+      }
       margin-bottom: 20px;
       &:nth-child(16){
         display: none;
@@ -33,7 +36,7 @@
         display: none;
       }
       .card-title {
-        a{color: #000;}
+        cursor: pointer;
       }
       .card-body{
         padding: 00px 1rem 20px;

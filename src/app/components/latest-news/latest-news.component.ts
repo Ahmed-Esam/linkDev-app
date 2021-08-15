@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingService } from '../../service/listing.service';
 import { IArticle } from '../../interface/Articles';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-latest-news',
@@ -8,17 +9,22 @@ import { IArticle } from '../../interface/Articles';
   styleUrls: ['./latest-news.component.scss']
 })
 export class LatestNewsComponent implements OnInit {
-  isShare:boolean = true;
+  isShare:boolean = false;
   news_listing:any;
   apiNews:any;
   data:any;
   category = Array<{}>();
-  test!:IArticle;
-  constructor(private Newslisting: ListingService) { }
+  constructor(private Newslisting: ListingService,private router: Router) { }
 
 
-  toggleShare(){
+  toggleShare(valOpen:any){
     this.isShare = !this.isShare;
+    console.log(valOpen.target.nextElementSibling)
+    if (this.isShare) {
+      valOpen.target.nextElementSibling.classList.add("OpenButtom")
+    }else{
+
+    }
   }
 
   getDatalisting(){
@@ -28,6 +34,18 @@ export class LatestNewsComponent implements OnInit {
     })
   }
 
+  OneNews:any;
+  getDet(id:number){
+
+    this.data.forEach((ele:any) => {
+      if (ele.id === id) {
+        this.OneNews = ele;
+        const myJSON = JSON.stringify(this.OneNews);
+        localStorage.setItem("news", myJSON);
+        this.router.navigateByUrl('details');
+      }
+    });
+  }
   ngOnInit(): void {
     this.getDatalisting()
   }

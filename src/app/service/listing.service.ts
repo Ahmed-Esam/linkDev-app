@@ -10,6 +10,9 @@ export class ListingService {
 
   constructor(private http: HttpClient) { }
   getNewsListing(){
-    return  this.http.get('https://api.npoint.io/e2534d5412765bf36702')
+    return  this.http.get<IArticle>('https://api.npoint.io/e2534d5412765bf36702')
+  }
+  getCategoryListing(){
+    return  this.http.get('https://api.npoint.io/c138bb84dc0b94ec5a18')
   }
 }

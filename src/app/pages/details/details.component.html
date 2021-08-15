@@ -7,13 +7,39 @@
         <li class="breadcrumb-item active" aria-current="page">News Details</li>
       </ol>
     </nav>
-    <h2>News Details</h2>
     <div class="card mb-12">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="{{detailsNews.urlToImage}}" class="card-img-top" alt="...">
+
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div class="Header-details">
+          <h2>News Details</h2>
+          <div class="icon-heart-share">
+            <div class="i-heart">
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+            </div>
+            <div>
+              <i (click)="toggleShare()" class="fa fa-share-alt" aria-hidden="true"></i>
+              <div [ngClass]="isShare == true ? 'CloseButtom' : 'OpenButtom'">
+                <ul class="listShare">
+                  <li class="I-facebook">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </li>
+                  <li class="I-twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </li>
+                  <li class="I-envelope">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <p class="card-text"><small class="text-muted">{{getcategoryName}}</small></p>
+        <h5 class="card-title">{{detailsNews.title}}</h5>
+        <p class="card-text">{{detailsNews.content}}</p>
+
       </div>
     </div>
   </div>

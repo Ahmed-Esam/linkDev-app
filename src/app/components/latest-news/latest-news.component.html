@@ -6,15 +6,15 @@
     </div>
     <div class="contentLatestNews">
       <div class="card" *ngFor="let item of data"  [ngClass]="{'d-none': item.showOnHomepage === false}">
-        <div *ngIf="item.showOnHomepage === true">
+        <div *ngIf="item.showOnHomepage === true" #ClicHere>
            <img src={{item.urlToImage}} class="card-img-top" alt="..." style="height: 180px;">
             <div class="icon-heart-share">
               <div class="i-heart">
                 <i class="fa fa-heart-o" aria-hidden="true"></i>
               </div>
-              <div>
-                <i (click)="toggleShare()" class="fa fa-share-alt" aria-hidden="true"></i>
-                <div [ngClass]="isShare == true ? 'CloseButtom' : 'OpenButtom'">
+              <div  (click)="toggleShare($event)">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                <div [ngClass]="isShare == false ? 'CloseButtom' : 'OpenButtom'">
                   <ul class="listShare">
                     <li class="I-facebook">
                       <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -31,7 +31,7 @@
 
             </div>
             <div class="card-body">
-              <h5 class="card-title">
+              <h5 class="card-title" (click)="getDet(item.id)">
                 {{item.title | slice:0:40}}...
              </h5>
               <p class="tags">News</p>
